@@ -1,72 +1,104 @@
 import React from 'react'
 import '@coreui/coreui/dist/css/coreui.min.css'
 import './SideBar.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { VscSignOut } from "react-icons/vsc";
 
 import {
   CBadge,
   CSidebar,
-  CSidebarBrand,
   CSidebarHeader,
   CSidebarNav,
   CNavGroup,
   CNavLink,
-  CNavItem,
-  CNavTitle,
+  CButton
 } from '@coreui/react'
 
 import CIcon from '@coreui/icons-react'
-import { cilCloudDownload, cilLayers, cilPuzzle, cilSpeedometer,cilZoom,cilBell ,cilAddressBook,cilBlur} from '@coreui/icons'
+import {
+  cilSpeedometer,
+  cilBell,
+  cilBlur,
+  cilPuzzle,
+  cilAddressBook,
+  cilZoom,
+  cilAccountLogout
+} from '@coreui/icons'
 
 function SideBar() {
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    localStorage.removeItem("token");
+    console.log("Signed out");
+    navigate("/login");
+  };
+
   return (
     <CSidebar className="border-end" unfoldable>
       <CSidebarHeader className="border-bottom">
         <CIcon className='nav-icon' icon={cilBlur}></CIcon>
       </CSidebarHeader>
+
       <CSidebarNav>
         <CNavLink as={Link} to="/dashbord" className="custom-nav-link" style={{ textDecoration: 'none', color: 'inherit' }}>
           <CIcon customClassName="nav-icon" icon={cilSpeedometer} />
-          Dashbord
-          {/* <Link to="/dashbord" style={{ textDecoration: 'none', color: 'inherit' }}>Dashbord</Link> */}
-
+          &nbsp;Dashbord
         </CNavLink>
-        
+
         <CNavGroup
           toggler={
             <>
-              <CIcon customClassName="nav-icon" icon={cilPuzzle} /> My Items{' '}
+              <CIcon customClassName="nav-icon" icon={cilPuzzle} />
+              &nbsp;My Items
             </>
           }
         >
           <CNavLink as={Link} to="/mylostitem" style={{ textDecoration: 'none', color: 'inherit' }}>
             <span className="nav-icon">
               <span className="nav-icon-bullet"></span>
-            </span>{' '}
-            My Lost Item
-            {/* <Link to="/mylostitem" style={{ textDecoration: 'none', color: 'inherit' }}>My Lost Item</Link> */}
+            </span>
+            &nbsp;My Lost Item
           </CNavLink>
+
           <CNavLink as={Link} to="/myfounditem" style={{ textDecoration: 'none', color: 'inherit' }}>
             <span className="nav-icon">
               <span className="nav-icon-bullet"></span>
-            </span>{' '}
-            My Found Item
-            {/* <Link to="/myfounditem" style={{ textDecoration: 'none', color: 'inherit' }}>My Found Item</Link> */}
+            </span>
+            &nbsp;My Found Item
           </CNavLink>
         </CNavGroup>
 
         <CNavLink href="#">
-          <CIcon customClassName="nav-icon" icon={cilBell} /> Notification{' '}
+          <CIcon customClassName="nav-icon" icon={cilBell} />
+          &nbsp;Notification
           <CBadge color="primary ms-auto">NEW</CBadge>
         </CNavLink>
-        
+
         <CNavLink href="https://coreui.io">
-          <CIcon customClassName="nav-icon" icon={cilAddressBook} /> Post
+          <CIcon customClassName="nav-icon" icon={cilAddressBook} />
+          &nbsp;Post
         </CNavLink>
+
         <CNavLink href="https://coreui.io/pro/">
-          <CIcon customClassName="nav-icon" icon={cilZoom} /> Help
+          <CIcon customClassName="nav-icon" icon={cilZoom} />
+          &nbsp;Help
         </CNavLink>
       </CSidebarNav>
+
+      {/* Sign Out button at the bottom */}
+      <div className=" border-top mt-auto flex hover:bg-red-500">
+        
+        <CButton
+          className="w-100 d-flex align-items-center justify-content-center gap-2  "
+          onClick={handleSignOut}
+        >
+       
+            &nbsp; 
+          <VscSignOut className='text-2xl '/>
+          
+        </CButton>
+      </div>
     </CSidebar>
   )
 }

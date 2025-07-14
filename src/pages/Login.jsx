@@ -63,16 +63,16 @@ export default function Login() {
 
                         {/* Sign In Button */}
                         <button onClick={handleLogin}
-                            className='w-[400px] h-[50px] bg-blue-500 hover:bg-blue-600 text-white rounded-xl mb-2' style={{ marginTop: '20px' }}
+                            className='bg-blue-500 hover:bg-blue-600 text-white rounded-xl mb-2' style={{ marginTop: '20px', width: '400px', height: '50px' }}
                         >
                             Sign In
                         </button>
 
                        
 
-                        {/* Register Button */}
+                        {/* Register */}
                         <p className='text-white text-base mt-4'>
-                            Don't have an account?
+                             Don't have an account?
                             &nbsp;
                             <span>
                                 <Link to={"/Register"} className='cursor-pointer text-lg' style={{color:"yellow", textDecoration: "none"}}> Register</Link>
