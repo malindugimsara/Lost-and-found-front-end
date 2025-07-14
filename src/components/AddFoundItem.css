@@ -1,0 +1,102 @@
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: auto;
+    padding: 20px;
+    background: rgba(4, 2, 2, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    z-index: 1001; 
+}
+
+/* Overlay to blur background when popup is open */
+
+/* Add to your CSS file */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(200, 200, 200, 0.2); /* semi-transparent */
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.found-button {
+    position: relative;
+    margin: 20px;
+    width: 30%;
+    height: 80px;
+    color: black;
+    font-size: 2em;
+    letter-spacing: 5px;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    background: rgba(38, 95, 161, 0.76);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: black;
+}
+
+textarea{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: black;
+    resize: none; /* Prevent resizing */
+}
+
+h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(103, 167, 178, 0.76);
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+label {
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: block; /* Ensure label takes full width */
+}

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+body {
+    background: #678ea3 !important;
+ 
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
